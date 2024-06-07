@@ -30,7 +30,7 @@
 .header-content p{
     color: white;
     font-size: 1vw;
-    text-shadow: 0 0 3px black;
+    text-shadow: 0 0 10px black;
 }
 .header-content button{
     border: none;
