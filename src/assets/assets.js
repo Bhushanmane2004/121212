@@ -60,7 +60,10 @@ import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
 
+import doctor from './doctor-from-future-concept.jpg'
+
 export const assets = {
+    doctor,
     logo,
     basket_icon,
     header_img,
