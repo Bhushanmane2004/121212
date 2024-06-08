@@ -1,8 +1,6 @@
 .Header {
     height: 34vw;
     margin: 0px auto;
-    background: url('./doctor-from-future-concept.jpg') no-repeat center center;
-    background-size: cover; /* Stretch and cover the entire div */
     position: relative;
     border-radius: 2vw;
 }
@@ -23,17 +21,17 @@
 
 .header-content h2{
     font-weight: 500;
-    color: white;
+    color:#3ABEF9;
     font-size: max(4.5vw,22px);
     text-shadow: 0 0 5px black;
 }
 .header-content p{
-    color: white;
+    color: black;
     font-size: 1vw;
     text-shadow: 0 0 10px black;
 }
 .header-content button{
-    border: none;
+    /* border: none; */
     color: #747474;
     font-weight: 500;
     padding: 1vw 2.3vw;
