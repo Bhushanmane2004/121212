@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./LoginPopUp.css";
 import { assets } from "../../assets/assets";
+import dotenv from 'dotenv'
 
-const LoginPopUp = ({ setShowLogin }) => {
+const LoginPopUp = ({ setshowlogin }) => {
   const [currentState, setCurrentState] = useState("Login");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true);
-
-  useEffect(() => {
-    setEmail("");
-    setName("");
-    setPassword("");
-    setConfirmPassword("");
-    setPasswordsMatch(true);
-  }, [currentState]);
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -32,7 +25,7 @@ const LoginPopUp = ({ setShowLogin }) => {
     e.preventDefault();
 
     if (currentState === "Register" && !passwordsMatch) {
-      alert("Passwords do not match");
+      console.log("Passwords do not match");
       return;
     }
 
@@ -43,8 +36,8 @@ const LoginPopUp = ({ setShowLogin }) => {
     };
 
     const url = currentState === "Login"
-    ? `${process.env.REACT_APP_BACKEND_URL}/api/user/login`
-    : `${process.env.REACT_APP_BACKEND_URL}/api/user/register`;
+      ? `${process.env.REACT_APP_BACKEND_URL}/api/user/login`
+      : `${process.env.REACT_APP_BACKEND_URL}/api/user/register`;
 
     try {
       const response = await fetch(url, {
@@ -58,17 +51,19 @@ const LoginPopUp = ({ setShowLogin }) => {
       const result = await response.json();
       console.log("Form Data Submitted:", result);
 
+      // Handle the response accordingly
       if (result.success) {
-        alert("Success");
+        // Handle successful login/register
+        alert("success");
         console.log("Success:", result);
-        setShowLogin(false); // Close the popup on success
+        // Optionally close the popup or perform other actions
       } else {
+        // Handle error in response
         alert(result.message);
         console.log("Error:", result.message);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("An error occurred. Please try again.");
     }
   };
 
@@ -78,7 +73,9 @@ const LoginPopUp = ({ setShowLogin }) => {
         <div className="loginpopup-title">
           <h2>{currentState}</h2>
           <img
-            onClick={() => setShowLogin(false)}
+            onClick={() => {
+              setshowlogin(false);
+            }}
             src={assets.cross_icon}
             alt="close"
           />
@@ -125,7 +122,7 @@ const LoginPopUp = ({ setShowLogin }) => {
         </button>
         <div className="loginpopuo-condition">
           <input type="checkbox" required />
-          <p>By continuing, I agree to the terms of use & privacy policy</p>
+          <p>By Continuing, I agree to the term of use & privacy policy</p>
         </div>
         {currentState === "Login" ? (
           <p>
