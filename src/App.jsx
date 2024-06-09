@@ -5,7 +5,8 @@ import Home from './pages/Home/Home';
 import Card from './pages/Card/Card';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import LoginPopUp from './compound/LoginPopUp/LoginPopUp';
-import Dashboard from './compound/Dashboard/Dashboard'; 
+import Dashboard from './compound/Dashboard/Dashboard';
+
 function App() {
   const [showlogin, setshowlogin] = useState(false);
 
@@ -18,7 +19,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/Card' element={<Card />} />
           <Route path='/Order' element={<PlaceOrder />} />
-          <Route path='/Dashboard' element={<Dashboard />} /> 
+          <Route path='/Dashboard' element={<Dashboard userType="doctor" />} />
         </Routes>
       </div>
     </>
