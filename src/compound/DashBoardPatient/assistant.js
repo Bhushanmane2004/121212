@@ -7,7 +7,7 @@ async function Assistant(message) {
     const bard = new BardAPI();
 
     // Set API key
-    const apiKey = 'AIzaSyDvujJ5BC_kMt1IamSE5f6hoAiU91nraz0'; // Replace with your actual API key
+    const apiKey = process.env.bardapi; // Replace with your actual API key
 
     // Initialize chat with API key
     await bard.initializeChat(apiKey);
