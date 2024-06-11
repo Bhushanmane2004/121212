@@ -1,27 +1,38 @@
 import React, { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import NavBar from './compound/navbar/NavBar';
 import Home from './pages/Home/Home';
 import Card from './pages/Card/Card';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import Dashboard from './compound/DashBoardPatient/Dashboard.jsx';
 import LoginPopUp from './compound/LoginPopUp/LoginPopUp';
-import Dashboard from './compound/Dashboard/Dashboard';
+import Footer from './compound/Footer/Footer.jsx';
+
 
 function App() {
-  const [showlogin, setshowlogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLoginSuccess = () => {
+    setIsAuthenticated(true);
+    setShowLogin(false);
+    navigate('/dashboard');
+  };
 
   return (
     <>
-      {showlogin ? <LoginPopUp setshowlogin={setshowlogin} /> : null}
+      {showLogin && <LoginPopUp setshowlogin={setShowLogin} onLoginSuccess={handleLoginSuccess} />}
       <div className='app'>
-        <NavBar setshowlogin={setshowlogin} />
+        <NavBar setShowLogin={setShowLogin} />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/Card' element={<Card />} />
-          <Route path='/Order' element={<PlaceOrder />} />
-          <Route path='/Dashboard' element={<Dashboard userType="doctor" />} />
+          <Route path='/card' element={<Card />} />
+          <Route path='/order' element={<PlaceOrder />} />
+          <Route path='/dashboard' element={isAuthenticated ? <Dashboard userType="doctor" /> : <Home />} />
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }

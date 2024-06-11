@@ -4,10 +4,30 @@
     align-items: center;
     justify-content: space-between;
 }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 30px;
+  }
+  
+  .iitlogo {
+    width: 120px;
+    background-color: #444; /* This makes the white logo visible */
+    padding: 5px; /* Optional: add padding around the logo */
+    border-radius: 5px; /* Optional: make the background rounded */
+    margin-right: 10px; /* Spacing between the logos */
+  }
+  
+  .viitlogo {
+    background: none;
+    background-color: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 80px
 
-.navbar .logo{
-    width: 200px;
-}
+  }
+
 
 .navbar-menu{
     display: flex;
