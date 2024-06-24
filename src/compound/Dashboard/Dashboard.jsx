@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Dashboard.css';
-import graph1 from '../../assets/Screenshot 2024-06-09 090935.png';
-import graph2 from '../../assets/Screenshot 2024-06-09 090959.png';
+
 import { Assistant } from '../../assistant'; // Adjust the path accordingly
 import doctorsData from '../../data/doctors.json'; // Adjust the path accordingly
 

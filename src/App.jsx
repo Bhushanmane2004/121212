@@ -6,6 +6,7 @@ import Card from './pages/Card/Card';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import LoginPopUp from './compound/LoginPopUp/LoginPopUp';
 import Dashboard from './compound/Dashboard/Dashboard';
+import Footer from './compound/Footer/Footer.jsx';
 
 function App() {
   const [showlogin, setshowlogin] = useState(false);
@@ -35,6 +36,7 @@ function App() {
           <Route path="/DoctorDashboard" element={<Dashboard userType="doctor" contactedPatients={contactedPatients} />} />
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }
