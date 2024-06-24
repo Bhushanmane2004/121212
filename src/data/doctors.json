@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "name": "Dr. John Doe",
+      "specialization": "Cardiologist",
+      "location": "New York",
+      "contact": "123-456-7890"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Jane Smith",
+      "specialization": "Dermatologist",
+      "location": "Los Angeles",
+      "contact": "987-654-3210"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Emily Johnson",
+      "specialization": "Neurologist",
+      "location": "Chicago",
+      "contact": "555-123-4567"
+    },
+    {
+      "id": 4,
+      "name": "Dr. Michael Brown",
+      "specialization": "Orthopedic",
+      "location": "Houston",
+      "contact": "555-765-4321"
+    },
+    {
+      "id": 5,
+      "name": "Dr. Linda Davis",
+      "specialization": "Pediatrician",
+      "location": "San Francisco",
+      "contact": "555-234-5678"
+    }
+  ]
+  

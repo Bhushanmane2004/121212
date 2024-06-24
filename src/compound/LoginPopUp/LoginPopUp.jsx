@@ -1,9 +1,9 @@
-// LoginPopUp.jsx
 import React, { useState } from "react";
 import "./LoginPopUp.css";
 import { assets } from "../../assets/assets";
+import dotenv from 'dotenv'
 
-const LoginPopUp = ({ setshowlogin, onLoginSuccess }) => {
+const LoginPopUp = ({ setshowlogin }) => {
   const [currentState, setCurrentState] = useState("Login");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -35,10 +35,9 @@ const LoginPopUp = ({ setshowlogin, onLoginSuccess }) => {
       ...(currentState === "Register" && { name }),
     };
 
-    const url =
-      currentState === "Login"
-        ? "https://back-end-six-liart.vercel.app/api/user/login"
-        : "https://back-end-six-liart.vercel.app/api/user/register";
+    const url = currentState === "Login"
+      ? `${process.env.REACT_APP_BACKEND_URL}/api/user/login`
+      : `${process.env.REACT_APP_BACKEND_URL}/api/user/register`;
 
     try {
       const response = await fetch(url, {
@@ -52,11 +51,14 @@ const LoginPopUp = ({ setshowlogin, onLoginSuccess }) => {
       const result = await response.json();
       console.log("Form Data Submitted:", result);
 
+      // Handle the response accordingly
       if (result.success) {
+        // Handle successful login/register
         alert("success");
         console.log("Success:", result);
-        onLoginSuccess(name, email); // Pass name and email to onLoginSuccess function
+        // Optionally close the popup or perform other actions
       } else {
+        // Handle error in response
         alert(result.message);
         console.log("Error:", result.message);
       }
@@ -71,7 +73,9 @@ const LoginPopUp = ({ setshowlogin, onLoginSuccess }) => {
         <div className="loginpopup-title">
           <h2>{currentState}</h2>
           <img
-            onClick={() => setshowlogin(false)}
+            onClick={() => {
+              setshowlogin(false);
+            }}
             src={assets.cross_icon}
             alt="close"
           />
@@ -116,9 +120,9 @@ const LoginPopUp = ({ setshowlogin, onLoginSuccess }) => {
         <button type="submit">
           {currentState === "Register" ? "Create Account" : "Login"}
         </button>
-        <div className="loginpopup-condition">
+        <div className="loginpopuo-condition">
           <input type="checkbox" required />
-          <p>By Continuing, I agree to the terms of use & privacy policy</p>
+          <p>By Continuing, I agree to the term of use & privacy policy</p>
         </div>
         {currentState === "Login" ? (
           <p>

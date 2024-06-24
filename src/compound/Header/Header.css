@@ -1,44 +1,35 @@
 .Header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color:white;
-    padding: 40px;
-    border-radius: 20px;
-    margin-left:0cqmin;
-    margin-top: 20px;
-    margin-bottom: 100px;
-    max-width:max-content;
-  }
-
-  .header-content {
-    max-width: 800px;
-  }
-  .header.header-content.mainlogo{
-      width: 90%;
-      box-shadow: none;
-      background-color: white;
+    height: 34vw;
+    margin: 0px auto;
+    position: relative;
+    border-radius: 2vw;
 }
-.header.header-content button{
-    color: rgb(60, 121, 175);
- }
 
- .header-content h4 {
-    font-size: 1.5rem;
-    color: #2be406;
-    margin-bottom: 10px;
-    margin-left: 15px;
-    padding-left: 35px;
-  }
-  
-  .header-content p {
-    font-size: 1.2rem;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
+
+.header-content{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5vw;
+    max-width: 50%;
+    bottom: 10%;
+    left: 6vw;
+    animation: FadeIn 4s;
+
+}
+
+.header-content h2{
+    font-weight: 500;
+    color:#3ABEF9;
+    font-size: max(4.5vw,22px);
+    text-shadow: 0 0 5px black;
+}
+.header-content p{
+    color: black;
+    font-size: 1vw;
+    text-shadow: 0 0 10px black;
+}
 .header-content button{
     /* border: none; */
     color: #747474;
@@ -50,21 +41,6 @@
     cursor: pointer;
 }
 
-  
-  
-.mainlogo{
-  border-radius: 20px;
-  margin-left: 20px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.headerimg{
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-left: 20px; 
-  /* max-width: 100%; */
-  width: 34vw;
-  
-}
 @media (max-width:1050px) {
  
     .header-content{

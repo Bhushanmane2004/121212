@@ -61,14 +61,8 @@ import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
 
 import doctor from './doctor-from-future-concept.jpg'
-import doc from './Doctor.png'
-import Insuruance from './Insuruance.png'
-import path from './Path.png'
 
 export const assets = {
-    path,
-    Insuruance,
-    doc,
     doctor,
     logo,
     basket_icon,

@@ -1,0 +1,55 @@
+{
+    "patients": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "age": 45,
+        "gender": "Male",
+        "contact": "123-456-7890",
+        "email": "john.doe@example.com",
+        "diagnosis": "Hypertension",
+        "report": "hypertension_report.pdf"
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "age": 38,
+        "gender": "Female",
+        "contact": "987-654-3210",
+        "email": "jane.smith@example.com",
+        "diagnosis": "Diabetes",
+        "report": "diabetes_report.pdf"
+      },
+      {
+        "id": 3,
+        "name": "Alice Johnson",
+        "age": 52,
+        "gender": "Female",
+        "contact": "555-555-5555",
+        "email": "alice.johnson@example.com",
+        "diagnosis": "Asthma",
+        "report": "asthma_report.pdf"
+      },
+      {
+        "id": 4,
+        "name": "Bob Brown",
+        "age": 60,
+        "gender": "Male",
+        "contact": "111-222-3333",
+        "email": "bob.brown@example.com",
+        "diagnosis": "Arthritis",
+        "report": "arthritis_report.pdf"
+      },
+      {
+        "id": 5,
+        "name": "Carol White",
+        "age": 29,
+        "gender": "Female",
+        "contact": "444-666-7777",
+        "email": "carol.white@example.com",
+        "diagnosis": "Migraine",
+        "report": "migraine_report.pdf"
+      }
+    ]
+  }
+  

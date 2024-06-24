@@ -1,38 +1,40 @@
-import React, { useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import NavBar from './compound/navbar/NavBar';
 import Home from './pages/Home/Home';
 import Card from './pages/Card/Card';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
-import Dashboard from './compound/DashBoardPatient/Dashboard.jsx';
 import LoginPopUp from './compound/LoginPopUp/LoginPopUp';
-import Footer from './compound/Footer/Footer.jsx';
-
+import Dashboard from './compound/Dashboard/Dashboard';
 
 function App() {
-  const [showLogin, setShowLogin] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const navigate = useNavigate();
+  const [showlogin, setshowlogin] = useState(false);
+  const [contactedPatients, setContactedPatients] = useState(() => {
+    const savedPatients = localStorage.getItem('patients');
+    return savedPatients ? JSON.parse(savedPatients) : [];
+  });
 
-  const handleLoginSuccess = () => {
-    setIsAuthenticated(true);
-    setShowLogin(false);
-    navigate('/dashboard');
+  const addContactedPatient = (patient) => {
+    setContactedPatients((prevPatients) => {
+      const updatedPatients = [...prevPatients, patient];
+      localStorage.setItem('patients', JSON.stringify(updatedPatients));
+      return updatedPatients;
+    });
   };
 
   return (
     <>
-      {showLogin && <LoginPopUp setshowlogin={setShowLogin} onLoginSuccess={handleLoginSuccess} />}
-      <div className='app'>
-        <NavBar setShowLogin={setShowLogin} />
+      {showlogin ? <LoginPopUp setshowlogin={setshowlogin} /> : null}
+      <div className="app">
+        <NavBar setshowlogin={setshowlogin} />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/card' element={<Card />} />
-          <Route path='/order' element={<PlaceOrder />} />
-          <Route path='/dashboard' element={isAuthenticated ? <Dashboard userType="doctor" /> : <Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/Card" element={<Card />} />
+          <Route path="/Order" element={<PlaceOrder />} />
+          <Route path="/Dashboard" element={<Dashboard userType="patient" addContactedPatient={addContactedPatient} />} />
+          <Route path="/DoctorDashboard" element={<Dashboard userType="doctor" contactedPatients={contactedPatients} />} />
         </Routes>
       </div>
-      <Footer />
     </>
   );
 }
